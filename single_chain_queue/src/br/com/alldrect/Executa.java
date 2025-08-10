@@ -58,7 +58,6 @@ class MyQueue<T>{
 			System.out.println("nao temos nenhum elemento para remover");
 			return;
 		}
-		
 		if(head == tail) {
 			head = null;
 			tail = null;
@@ -67,9 +66,42 @@ class MyQueue<T>{
 		}
 		
 	}
+	
+	public void deQueueFinal() {
+		if(head == null) {
+			System.out.println("a lista já está vazia!");
+			return;
+		}
+		
+		if(head == tail) {
+			head = null;
+			tail = null;
+		}else {
+			Node<T> current = head;
+			
+			while(current.next != tail) {
+				current = current.next;
+			}
+			
+			current.next = null;
+			tail = current;
+		}
+	}
 }
 
 
 public class Executa{
+	public static void main(String[] args) {
+		
+		MyQueue<Integer> queue = new MyQueue<Integer>();
+		
+		queue.enqueueFirst(10);
+		queue.enqueueFinal(20);
+		queue.enqueueFirst(14);
+		queue.deQueueFirst();
+		queue.deQueueFinal();
+		
+		queue.showAll();
+	}
 	
 }
