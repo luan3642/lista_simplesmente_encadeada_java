@@ -52,6 +52,21 @@ class MyQueue<T>{
 			current = current.next;
 		}
 	}
+	
+	public void deQueueFirst() {
+		if(head == null) {
+			System.out.println("nao temos nenhum elemento para remover");
+			return;
+		}
+		
+		if(head == tail) {
+			head = null;
+			tail = null;
+		}else {
+			head = head.next;
+		}
+		
+	}
 }
 
 
